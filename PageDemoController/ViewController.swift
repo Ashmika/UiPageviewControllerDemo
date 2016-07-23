@@ -17,8 +17,8 @@ class ViewController:UIPageViewController,UIPageViewControllerDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        arrPageTitle = ["Page1", "Page2", "Page3","Page4","Page5","Page6"];
-        arrPagePhoto = ["image1.png", "image2.jpg", "image3.jpeg","image4.jpg","image5.jpg","image6.jpg"];
+        arrPageTitle = ["Page1", "Page2", "Page3"];
+        //arrPagePhoto = ["image1.png", "image2.jpg", "image3.jpeg","image4.jpg","image5.jpg","image6.jpg"];
         self.dataSource = self
         self.setViewControllers([getViewControllerAtIndex(0)] as [UIViewController], direction:
             UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
@@ -62,8 +62,11 @@ class ViewController:UIPageViewController,UIPageViewControllerDataSource
     {
         // Create a new view controller and pass suitable data.
         let pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! PageViewController
+        
+        
+        
         pageViewController.strTitle = "\(arrPageTitle[index])"
-        pageViewController.strPhotoName = "\(arrPagePhoto[index])"
+       // pageViewController.strPhotoName = "\(arrPagePhoto[index])"
         pageViewController.pageIndex = index
         return pageViewController
     }
